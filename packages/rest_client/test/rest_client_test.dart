@@ -1,19 +1,26 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rest_client/rest_client.dart';
+import 'package:rest_client/src/clients/breed_api/breed_api.dart';
+import 'package:rest_client/src/models/breed/breed.dart';
 
 void main() {
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'https://dog.ceo/api',
+      baseUrl: 'https://api.thedogapi.com',
     ),
   );
 
-  final DogApiClient dogApiClient = DogApiClient(dio);
+  final BreedApiClient breedApiClient = BreedApiClient(dio);
 
   test('test', () async {
-    final dogImage = await dogApiClient.getDogImageRandom();
+    final List<Breed> breeds = await breedApiClient.getBreedsPaging(
+      limit: 10,
+      page: 0,
+    );
 
-    expect(dogImage.message, isNotEmpty);
+    print(breeds.join('\n'));
+
+    expect(breeds, isNotEmpty);
   });
 }
