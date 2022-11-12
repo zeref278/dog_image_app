@@ -2,26 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 class ColorConverter implements JsonConverter<Color, String> {
+
   const ColorConverter();
+  @override
+  Color fromJson(String json) {
+    String value ='0xFF$json';
+    return Color(int.parse(value));
+  }
 
   @override
-  Color fromJson(String json) => Color(int.parse(json));
+  String toJson(Color color) {
+    return color.value.toRadixString(16).substring(4);
+  }
 
-  @override
-  String toJson(Color color) => color.value.toRadixString(16);
 }
-
-/// How to use JsonConverter for special property
-// @Freezed(fromJson: true)
-// @ColorConverter()
-// class DogImage with _$DogImage {
-//   const factory DogImage({
-//     required String message,
-//     required String status,
-//     @ColorConverter()
-//     required Color color,
-//   }) = _DogImage;
-//
-//   factory DogImage.fromJson(Map<String, dynamic> json) =>
-//       _$DogImageFromJson(json);
-// }
