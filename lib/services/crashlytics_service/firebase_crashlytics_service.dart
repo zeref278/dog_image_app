@@ -8,8 +8,7 @@ class FirebaseCrashlyticsService implements CrashlyticsService {
   }
 
   @override
-  Future<void> recordException(exception, StackTrace? stack) {
-    // TODO: implement recordException
-    throw UnimplementedError();
+  Future<void> recordException(exception, StackTrace? stack) async {
+    print(exception);
   }
 }

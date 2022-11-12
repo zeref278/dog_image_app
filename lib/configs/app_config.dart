@@ -4,7 +4,7 @@ class AppConfig {
   static const String defaultLocale = 'en';
 
   static void configDev() {
-    baseUrl = 'https://dog.ceo/api';
+    baseUrl = 'https://api.thedogapi.com';
   }
 
   static void configTest() {

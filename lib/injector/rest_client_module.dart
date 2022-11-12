@@ -36,8 +36,8 @@ class RestClientModule {
       instanceName: dioInstance,
     );
 
-    injector.registerFactory<DogApiClient>(
-      () => DogApiClient(
+    injector.registerSingleton<ImageApiClient>(
+      ImageApiClient(
         injector(instanceName: dioInstance),
       ),
     );

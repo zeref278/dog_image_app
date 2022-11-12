@@ -26,12 +26,6 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: [
-            ElevatedButton(
-              child: Text(S.of(context).dog_image_random),
-              onPressed: () {
-                context.push(AppRouter.dogImageRandomPath);
-              },
-            ),
             AppSpacing.verticalSpacing32,
             ElevatedButton(
               child: Text(S.of(context).config),
@@ -41,16 +35,9 @@ class _HomePageState extends State<HomePage> {
             ),
             AppSpacing.verticalSpacing32,
             ElevatedButton(
-              child: Text(S.of(context).assets),
+              child: Text('Dog image'),
               onPressed: () {
-                context.push(AppRouter.assets);
-              },
-            ),
-            AppSpacing.verticalSpacing32,
-            ElevatedButton(
-              child: Text(S.of(context).image_from_db),
-              onPressed: () {
-                context.push(AppRouter.imagesFromDb);
+                context.push(AppRouter.dogImages);
               },
             ),
           ],
